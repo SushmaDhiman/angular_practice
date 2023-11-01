@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { DashboardComponent } from './pages/user/dashboard/dashboard.component';
+import { PageNotFoundComponent } from './pages/error/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    PageNotFoundComponent
     
   
   ],
