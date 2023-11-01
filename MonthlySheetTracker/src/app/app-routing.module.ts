@@ -21,7 +21,6 @@ path:'', redirectTo: '/login', pathMatch: 'full'
   component: PageNotFoundComponent,
 },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
