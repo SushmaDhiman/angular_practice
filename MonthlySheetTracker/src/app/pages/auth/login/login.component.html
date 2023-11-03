@@ -5,20 +5,20 @@
       <div class="card border-0 shadow-sm rounded-3">
         <div class="card-body p-5">
           <div class="text-center mb-5">
-            <h5 class="text-primary fw-bold">Monthly Tracking Sheet</h5>
+            <h5 class="text-primary fw-bold">{{title}}</h5>
           </div>
           <form>
             <div class="mb-4">
-              <label for="inputEmail" class="form-label">Email</label>
+              <label for="inputEmail" class="form-label">{{loginLabels.email}}</label>
               <input
-                type="email"
+          type="email"
                 class="form-control shadow-sm rounded-3"
                 id="inputEmail"
                 aria-describedby="emailHelp"
               />
             </div>
             <div class="mb-4">
-              <label for="inputPassword" class="form-label">Password</label>
+              <label for="inputPassword" class="form-label">{{loginLabels.password}}</label>
               <input
                 type="password"
                 class="form-control shadow-sm rounded-3"
@@ -32,7 +32,7 @@
                 id="rememberMe"
               />
               <label class="form-check-label" for="rememberMe"
-                >Remember me</label
+                >{{loginLabels.remember}}</label
               >
             </div>
             <button
@@ -41,6 +41,7 @@
             >
               Login
             </button>
+            <a routerLink="/register" class="d-block text-center pt-3">Click to Register Page</a>
           </form>
         </div>
       </div>
@@ -50,4 +51,3 @@
 <!-- /login form section -->
 <!-- <button (click)="enroll()">+ add</button>
 <h1>{{demo}}</h1> -->
-<app-chid-comp></app-chid-comp>

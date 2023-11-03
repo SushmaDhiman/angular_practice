@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { PageNotFoundComponent } from './pages/error/page-not-found/page-not-found.component';
-import { ChidCompComponent } from './chid-comp/chid-comp.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -12,10 +11,6 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
-  },
-  {
-    path: 'child',
-    component: ChidCompComponent,
   },
   {
     path: '',

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MonthlySheetTracker';
-  test: string = 'pass data';
+
 
  
 }
