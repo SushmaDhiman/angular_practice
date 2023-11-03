@@ -8,7 +8,7 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class RegisterComponent {
   constructor(private _commonService: CommonService) {}
-  title: string = this._commonService.applicationTitle;
+  applicationTitle: string = this._commonService.applicationTitle;
   registerButton: string = 'Register';
   registerLabels = {
     firstName: 'First Name',
