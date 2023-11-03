@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { DashboardComponent } from './pages/user/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './pages/error/page-not-found/page-not-found.component';
+import { ChidCompComponent } from './chid-comp/chid-comp.component';
 
 @NgModule({
   declarations: [
@@ -14,15 +15,11 @@ import { PageNotFoundComponent } from './pages/error/page-not-found/page-not-fou
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    PageNotFoundComponent
-    
-  
+    PageNotFoundComponent,
+    ChidCompComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
