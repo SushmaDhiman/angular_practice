@@ -7,14 +7,9 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent  {
- // constructor(private _commonService: CommonService) {}
-  // demo: boolean = this._commonService.test;
-  // enroll() {
-  //   this._commonService.test = false;
-  //   this.demo = this._commonService.test;
-  // }
   constructor(private _commonService: CommonService) {}
   title: string = this._commonService.applicationTitle;
+  loginButton: string = 'Login';
 loginLabels = {
     email: 'Email',
     password: 'Password',

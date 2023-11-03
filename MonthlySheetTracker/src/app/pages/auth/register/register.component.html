@@ -5,11 +5,13 @@
       <div class="card border-0 shadow-sm rounded-3">
         <div class="card-body p-5">
           <div class="text-center mb-5">
-            <h5 class="text-primary fw-bold">{{title}}</h5>
+            <h5 class="text-primary fw-bold">{{ title }}</h5>
           </div>
           <form>
             <div class="mb-4">
-              <label for="inputFirstName" class="form-label">{{registerLabels.firstName}}</label>
+              <label for="inputFirstName" class="form-label">{{
+                registerLabels.firstName
+              }}</label>
               <input
                 type="email"
                 class="form-control shadow-sm rounded-3"
@@ -18,7 +20,9 @@
               />
             </div>
             <div class="mb-4">
-              <label for="inputLastName" class="form-label">{{registerLabels.lastName}}</label>
+              <label for="inputLastName" class="form-label">{{
+                registerLabels.lastName
+              }}</label>
               <input
                 type="email"
                 class="form-control shadow-sm rounded-3"
@@ -27,7 +31,9 @@
               />
             </div>
             <div class="mb-4">
-              <label for="inputEmail" class="form-label">{{registerLabels.email}}</label>
+              <label for="inputEmail" class="form-label">{{
+                registerLabels.email
+              }}</label>
               <input
                 type="email"
                 class="form-control shadow-sm rounded-3"
@@ -36,22 +42,24 @@
               />
             </div>
             <div class="mb-4">
-              <label for="inputEmail" class="form-label">{{registerLabels.profession}}</label>
+              <label for="inputEmail" class="form-label">{{
+                registerLabels.profession
+              }}</label>
               <select
                 class="form-select shadow-sm rounded-3"
                 aria-label="Default select example"
               >
-                <option selected>Select Profession</option>
-                <option value="1">Backend Developer</option>
-                <option value="2">Frontend Developer</option>
-                <option value="3">QA Developer</option>
-                <option value="3">BDE Developer</option>
+                <option selected>{{registerLabels.professionSelect.selectProfession}}</option>
+                <option value="1">{{registerLabels.professionSelect.backendDeveloper}}</option>
+                <option value="2">{{registerLabels.professionSelect.frontendDeveloper}}</option>
+                <option value="3">{{registerLabels.professionSelect.qaDeveloper}}</option>
+                <option value="3">{{registerLabels.professionSelect.bdeDeveloper}}</option>
               </select>
             </div>
             <div class="mb-4">
-              <label for="inputMobileNumber" class="form-label"
-                >{{registerLabels.mobileNumber}}</label
-              >
+              <label for="inputMobileNumber" class="form-label">{{
+                registerLabels.mobileNumber
+              }}</label>
               <input
                 type="email"
                 class="form-control shadow-sm rounded-3"
@@ -60,7 +68,9 @@
               />
             </div>
             <div class="mb-4">
-              <label for="inputPassword" class="form-label">{{registerLabels.password}}</label>
+              <label for="inputPassword" class="form-label">{{
+                registerLabels.password
+              }}</label>
               <input
                 type="password"
                 class="form-control shadow-sm rounded-3"
@@ -68,9 +78,9 @@
               />
             </div>
             <div class="mb-4">
-              <label for="inputConfirmPassword" class="form-label"
-                >{{registerLabels.confirmPassword}}</label
-              >
+              <label for="inputConfirmPassword" class="form-label">{{
+                registerLabels.confirmPassword
+              }}</label>
               <input
                 type="password"
                 class="form-control shadow-sm rounded-3"
@@ -81,9 +91,11 @@
               type="submit"
               class="btn btn-primary w-100 py-2 shadow-sm rounded-3"
             >
-              Register
+              {{registerButton}}
             </button>
-            <a routerLink="/login" class="d-block text-center pt-3">Click to login page</a>
+            <a routerLink="/login" class="d-block text-center pt-3 text-primary"
+              >Already have an account</a
+            >
           </form>
         </div>
       </div>

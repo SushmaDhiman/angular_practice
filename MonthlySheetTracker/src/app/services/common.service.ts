@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CommonService {
-  test: boolean = true;
+  //common variables
   applicationTitle: string = 'Monthly Tracking Sheet';
 }

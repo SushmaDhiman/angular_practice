@@ -5,20 +5,24 @@
       <div class="card border-0 shadow-sm rounded-3">
         <div class="card-body p-5">
           <div class="text-center mb-5">
-            <h5 class="text-primary fw-bold">{{title}}</h5>
+            <h5 class="text-primary fw-bold">{{ title }}</h5>
           </div>
           <form>
             <div class="mb-4">
-              <label for="inputEmail" class="form-label">{{loginLabels.email}}</label>
+              <label for="inputEmail" class="form-label">{{
+                loginLabels.email
+              }}</label>
               <input
-          type="email"
+                type="email"
                 class="form-control shadow-sm rounded-3"
                 id="inputEmail"
                 aria-describedby="emailHelp"
               />
             </div>
             <div class="mb-4">
-              <label for="inputPassword" class="form-label">{{loginLabels.password}}</label>
+              <label for="inputPassword" class="form-label">{{
+                loginLabels.password
+              }}</label>
               <input
                 type="password"
                 class="form-control shadow-sm rounded-3"
@@ -31,23 +35,26 @@
                 class="form-check-input shadow-sm rounded-1"
                 id="rememberMe"
               />
-              <label class="form-check-label" for="rememberMe"
-                >{{loginLabels.remember}}</label
-              >
+              <label class="form-check-label" for="rememberMe">{{
+                loginLabels.remember
+              }}</label>
             </div>
             <button
               type="submit"
               class="btn btn-primary w-100 py-2 shadow-sm rounded-3"
             >
-              Login
+              {{loginButton}}
             </button>
-            <a routerLink="/register" class="d-block text-center pt-3">Click to Register Page</a>
+            <a
+              routerLink="/register"
+              class="d-block text-center pt-3 text-primary"
+              >Create new account</a
+            >
           </form>
         </div>
       </div>
     </div>
   </div>
- </section>
+</section>
 <!-- /login form section -->
-<!-- <button (click)="enroll()">+ add</button>
-<h1>{{demo}}</h1> -->
+
