@@ -1,0 +1,7 @@
+// :host-context(.second) p {
+//   font-style: italic;
+// }
+
+:host-context(.style) div{
+    color: red;
+  }

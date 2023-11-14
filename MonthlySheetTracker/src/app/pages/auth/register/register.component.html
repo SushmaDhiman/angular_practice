@@ -1,29 +1,32 @@
 <!-- register form section -->
 <section class="container">
-  <div class="row justify-content-center align-items-center min-vh-100">
+ <div class="row justify-content-center align-items-center min-vh-100">
     <div class="col-5">
       <div class="card border-0 shadow-sm rounded-3">
         <div class="card-body p-5">
           <div class="text-center mb-5">
             <h5 class="text-primary fw-bold">{{ applicationTitle }}</h5>
           </div>
-          <form>
+          <form [formGroup]="registerForm">
             <div class="mb-4">
               <label for="inputFirstName" class="form-label">{{
                 registerLabels.firstName
               }}</label>
               <input
+              formControlName="firstName"
                 type="email"
                 class="form-control shadow-sm rounded-3"
                 id="inputFirstName"
                 aria-describedby="emailHelp"
               />
+              <span style="color: red;" *ngIf="firstName && firstName.invalid && firstName.touched">This field is not valid </span>
             </div>
             <div class="mb-4">
               <label for="inputLastName" class="form-label">{{
                 registerLabels.lastName
               }}</label>
               <input
+              formControlName="lastName"
                 type="email"
                 class="form-control shadow-sm rounded-3"
                 id="inputLastName"
@@ -35,11 +38,14 @@
                 registerLabels.email
               }}</label>
               <input
+              formControlName="email"
                 type="email"
+                required="true"
                 class="form-control shadow-sm rounded-3"
                 id="inputEmail"
                 aria-describedby="emailHelp"
               />
+              <span style="color: red;" *ngIf="email && email.invalid && email.touched">This email field is not valid </span>
             </div>
             <div class="mb-4">
               <label for="inputEmail" class="form-label">{{
@@ -61,6 +67,7 @@
                 registerLabels.mobileNumber
               }}</label>
               <input
+              formControlName=mobileNumber
                 type="email"
                 class="form-control shadow-sm rounded-3"
                 id="inputMobileNumber"
@@ -72,6 +79,7 @@
                 registerLabels.password
               }}</label>
               <input
+              formControlName=passward
                 type="password"
                 class="form-control shadow-sm rounded-3"
                 id="inputPassword"
@@ -82,12 +90,13 @@
                 registerLabels.confirmPassword
               }}</label>
               <input
+              formControlName=confirmPassward
                 type="password"
                 class="form-control shadow-sm rounded-3"
                 id="inputConfirmPassword"
               />
             </div>
-            <button
+            <button (click)="submitRegister()"
               type="submit"
               class="btn btn-primary w-100 py-2 shadow-sm rounded-3"
             >

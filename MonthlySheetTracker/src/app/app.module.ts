@@ -9,7 +9,11 @@ import { DashboardComponent } from './pages/user/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './pages/error/page-not-found/page-not-found.component';
 import { ParentComponent } from './pages/test/parent/parent.component';
 import { ChildComponent } from './pages/test/parent/child/child.component';
-
+import { DataComponent } from './data/data.component';
+import { TestComponent } from './data/test/test.component';
+import { FormsModule } from '@angular/forms';
+import{ReactiveFormsModule} from '@angular/forms';
+import{HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,10 +23,12 @@ import { ChildComponent } from './pages/test/parent/child/child.component';
     PageNotFoundComponent,
     ParentComponent,
     ChildComponent,
+    DataComponent,
+    TestComponent,
     
     
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -11,9 +11,11 @@
             <div class="mb-4">
               <label for="inputEmail" class="form-label">{{
                 loginLabels.email
-              }}</label>
+              }} </label>
               <input
+              name="email"
                 type="email"
+                [(ngModel)]="email"
                 class="form-control shadow-sm rounded-3"
                 id="inputEmail"
                 aria-describedby="emailHelp"
@@ -24,7 +26,9 @@
                 loginLabels.password
               }}</label>
               <input
+              name="password"
                 type="password"
+                [(ngModel)]="password"
                 class="form-control shadow-sm rounded-3"
                 id="inputPassword"
               />
@@ -39,7 +43,7 @@
                 loginLabels.remember
               }}</label>
             </div>
-            <button
+            <button (click)="setValue()"
               type="submit"
               class="btn btn-primary w-100 py-2 shadow-sm rounded-3"
             >
@@ -57,4 +61,9 @@
   </div>
 </section>
 <!-- /login form section -->
-
+<app-test>
+  <button>test</button>
+  <button class="abc">click</button>
+  <button class="xyz">testing</button>
+</app-test>
+<!-- <app-data></app-data> -->
