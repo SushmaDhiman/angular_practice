@@ -1,14 +1,44 @@
 import { Component } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
-import{FormGroup, FormControl,FormBuilder,NgForm,Validator, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-user: any;
-  constructor(private _commonService: CommonService,formbuilder:FormBuilder) {}
+  registerForm: FormGroup;
+  window = window.location.href;
+  constructor(private _commonService: CommonService, public fb: FormBuilder) {
+    this.registerForm = this.fb.group({
+      firstName: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]],
+      lastName: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]],
+      email: ['', [Validators.required, Validators.email]],
+      profession: [this.registerLabels.professionSelect.selectProfession],
+      mobileNumber: ['', [Validators.required,Validators.pattern('.{10,10}')]],
+      password: ['', [Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')]],
+      confirmPassword: ['', [Validators.required]],
+    });
+  }
+  get firstName() {
+    return this.registerForm.get('firstName')
+  }
+  get email() {
+    return this.registerForm.get('email')
+  }
+  get lastName() {
+    return this.registerForm.get('lastName')
+  }
+  get mobileNumber() {
+    return this.registerForm.get('mobileNumber')
+  }
+  get password() {
+    return this.registerForm.get('password')
+  }
+  get confirmPassword() {
+    return this.registerForm.get('confirmPassword')
+  }
   applicationTitle: string = this._commonService.applicationTitle;
   registerButton: string = 'Register';
   registerLabels = {
@@ -17,39 +47,48 @@ user: any;
     email: 'Email',
     profession: 'Profession',
     professionSelect: {
-      selectProfession: 'Select Profession',
+      selectProfession: 'Data analysis',
       backendDeveloper: 'Backend Developer',
       frontendDeveloper: 'Frontend Developer',
       qaDeveloper: 'QA Developer',
       bdeDeveloper: 'BDE Developer',
-},
+    },
     mobileNumber: 'Mobile Number',
-    password: 'Passward',
+    password: 'Password',
     confirmPassword: 'Confirm Password',
   };
-  registerForm = new FormGroup({
-    firstName:new FormControl('',[Validators.required,Validators.minLength(6)]),
-    lastName:new FormControl(''),
-    email:new FormControl('',[Validators.required,Validators.email]),
-    mobileNumber:new FormControl(''),
-    passward:new FormControl(''),
-    confirmPassward:new FormControl(''),
-  });
-  submitRegister(){
-    console.log(this.registerForm)
 
-    this._commonService.postData(this.registerForm.value).subscribe(data=>{
-      console.log(data);
-    })
+  updateRegister() {
+    throw new Error('Method not implemented.');
   }
 
+  submitForm() {
+    if (this.registerForm.valid) {
+      this._commonService.registerUserData(this.registerForm.value).subscribe(data => {
+      })
+    }
 
-get email()
-{
-return this.registerForm.get('email');
-}
-get firstName()
-{
-return this.registerForm.get('firstName');
-}
+  }
+  isValid: boolean = false
+  isValidate() {
+    if (this.firstName?.invalid) {
+      this.isValid = true;
+    }
+    if (this.lastName?.invalid) {
+      this.isValid = true;
+    }
+    if (this.email?.invalid) {
+      this.isValid = true;
+    }
+    if (this.mobileNumber?.invalid) {
+      this.isValid = true;
+    }
+    if (this.password?.invalid) {
+      this.isValid = true;
+    }
+    if (this.confirmPassword?.invalid) {
+      this.isValid = true;
+    }
+  }
+
 }

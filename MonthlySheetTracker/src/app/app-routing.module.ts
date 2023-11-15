@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { PageNotFoundComponent } from './pages/error/page-not-found/page-not-found.component';
+import { DashBoardComponent } from './dash-board/dash-board.component';
+import { DeleteModalComponent } from './modals/delete-modal/delete-modal.component';
+
 const routes: Routes = [
   {
     path: 'login',
@@ -11,6 +14,18 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'dashboard',
+    component: DashBoardComponent,
+  },
+  {
+    path: 'edit',
+    component: RegisterComponent,
+  },
+  {
+    path: 'delete',
+    component: DeleteModalComponent,
   },
   {
     path: '',

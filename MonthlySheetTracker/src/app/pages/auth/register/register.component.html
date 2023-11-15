@@ -7,7 +7,7 @@
           <div class="text-center mb-5">
             <h5 class="text-primary fw-bold">{{ applicationTitle }}</h5>
           </div>
-          <form [formGroup]="registerForm">
+          <form [formGroup]="registerForm" (ngSubmit)="submitForm()" novalidate="false">
             <div class="mb-4">
               <label for="inputFirstName" class="form-label">{{
                 registerLabels.firstName
@@ -19,7 +19,7 @@
                 id="inputFirstName"
                 aria-describedby="emailHelp"
               />
-              <span style="color: red;" *ngIf="firstName && firstName.invalid && firstName.touched">This field is not valid </span>
+              <span style="color: red;" *ngIf="firstName && firstName.invalid && firstName.touched || isValid && firstName?.untouched">This field is not valid </span>
             </div>
             <div class="mb-4">
               <label for="inputLastName" class="form-label">{{
@@ -32,6 +32,8 @@
                 id="inputLastName"
                 aria-describedby="emailHelp"
               />
+              <span style="color: red;" *ngIf="lastName && lastName.invalid && lastName.touched || isValid && lastName?.untouched">This email field is not valid </span>
+
             </div>
             <div class="mb-4">
               <label for="inputEmail" class="form-label">{{
@@ -40,26 +42,26 @@
               <input
               formControlName="email"
                 type="email"
-                required="true"
                 class="form-control shadow-sm rounded-3"
                 id="inputEmail"
                 aria-describedby="emailHelp"
               />
-              <span style="color: red;" *ngIf="email && email.invalid && email.touched">This email field is not valid </span>
+              <span style="color: red;" *ngIf="email && email.invalid && email.touched || isValid && email?.untouched">This email field is not valid </span>
             </div>
             <div class="mb-4">
               <label for="inputEmail" class="form-label">{{
                 registerLabels.profession
               }}</label>
               <select
+              formControlName="profession"
                 class="form-select shadow-sm rounded-3"
                 aria-label="Default select example"
               >
-                <option selected>{{registerLabels.professionSelect.selectProfession}}</option>
-                <option value="1">{{registerLabels.professionSelect.backendDeveloper}}</option>
-                <option value="2">{{registerLabels.professionSelect.frontendDeveloper}}</option>
-                <option value="3">{{registerLabels.professionSelect.qaDeveloper}}</option>
-                <option value="3">{{registerLabels.professionSelect.bdeDeveloper}}</option>
+                <option selected="true" [value]="registerLabels.professionSelect.selectProfession">{{registerLabels.professionSelect.selectProfession}}</option>
+                <option>{{registerLabels.professionSelect.backendDeveloper}}</option>
+                <option>{{registerLabels.professionSelect.frontendDeveloper}}</option>
+                <option>{{registerLabels.professionSelect.qaDeveloper}}</option>
+                <option>{{registerLabels.professionSelect.bdeDeveloper}}</option>
               </select>
             </div>
             <div class="mb-4">
@@ -68,39 +70,50 @@
               }}</label>
               <input
               formControlName=mobileNumber
-                type="email"
+                type="number"
                 class="form-control shadow-sm rounded-3"
                 id="inputMobileNumber"
                 aria-describedby="emailHelp"
               />
+              <span style="color: red;" *ngIf="mobileNumber && mobileNumber.invalid && mobileNumber.touched || isValid && mobileNumber?.untouched">This email field is not valid </span>
+
             </div>
             <div class="mb-4">
               <label for="inputPassword" class="form-label">{{
                 registerLabels.password
               }}</label>
               <input
-              formControlName=passward
-                type="password"
+              formControlName=password
+                type="text"
                 class="form-control shadow-sm rounded-3"
                 id="inputPassword"
               />
+              <span style="color: red;" *ngIf="password && password.invalid && password.touched || isValid && password?.untouched">This email field is not valid </span>
             </div>
             <div class="mb-4">
               <label for="inputConfirmPassword" class="form-label">{{
                 registerLabels.confirmPassword
               }}</label>
               <input
-              formControlName=confirmPassward
+              formControlName=confirmPassword
                 type="password"
                 class="form-control shadow-sm rounded-3"
                 id="inputConfirmPassword"
               />
+              <span style="color: red;" *ngIf="confirmPassword && confirmPassword.invalid && confirmPassword.touched || isValid && confirmPassword?.untouched">This email field is not valid </span>
+              <span style="color: red;" *ngIf="password?.value !== confirmPassword?.value">not same</span>
             </div>
-            <button (click)="submitRegister()"
+            <button *ngIf="window !== 'http://localhost:4200/edit'" (click)="isValidate()"
               type="submit"
               class="btn btn-primary w-100 py-2 shadow-sm rounded-3"
             >
               {{registerButton}}
+            </button>
+            <button *ngIf="window === 'http://localhost:4200/edit'" (click)="updateRegister()"
+              type="submit"
+              class="btn btn-primary w-100 py-2 shadow-sm rounded-3"
+            >
+              update
             </button>
             <a routerLink="/login" class="d-block text-center pt-3 text-primary"
               >Already have an account</a

@@ -1,0 +1,31 @@
+<div class="container">
+    <h3 class="text-center bg-success text-white">Dashboard</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Professions</th>
+            <th>MobileNumber</th>
+            <th>Password</th>
+            <th>ConfirmPassword</th>
+            <th>Buttons</th>    
+        </tr>        
+        <tr *ngFor="let item of getData;index as i;">
+            <td>#{{item.id}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.profession}}</td>
+            <td>{{item.mobileNumber}}</td>
+            <td>{{item.password}}</td>
+            <td>{{item.confirmPassword}}</td>
+            
+            <td>
+                <button class="me-2 btn btn-danger" (click)="deleteData(item.id)" >Delete</button>
+                <button routerLink="/edit" class="btn btn-primary" (click)="editPage()">Edit</button>
+            </td>
+        </tr>    
+    </table>
+</div>

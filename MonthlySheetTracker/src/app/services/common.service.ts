@@ -21,7 +21,15 @@ myData(){
 console.log(this.text);
 }
 
-postData(data: any):Observable<any>{
-  return this.http.post(this.Url+ "user", data)
+registerUserData(data: any):Observable<any>{
+  return this.http.post(this.Url+ "registerUser", data)
 }
+
+getRegisterData():Observable<any>{
+  return this.http.get(this.Url+ "registerUser")
+}
+deleteRegisterData(data: any):Observable<any>{
+  return this.http.delete(this.Url+ "registerUser"+"/"+data)
+}
+
 }
