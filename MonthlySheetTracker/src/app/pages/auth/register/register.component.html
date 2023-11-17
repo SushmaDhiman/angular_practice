@@ -132,7 +132,11 @@
               <span style="color: red;" *ngIf="password?.value !== confirmPassword?.value">Confirm password should be same as password </span>
               </div>
             </div>
-            <button (click)="isValidate()" type="submit"
+            <button *ngIf="this.registerForm.invalid" (click)="isValidate()" type="submit"
+              class="btn btn-primary w-100 py-2 shadow-sm rounded-3 mt-2">
+              {{registerButton}}
+            </button>
+            <button routerLink="/dashboard" *ngIf="this.registerForm.valid" (click)="isValidate()" type="submit"
               class="btn btn-primary w-100 py-2 shadow-sm rounded-3 mt-2">
               {{registerButton}}
             </button>

@@ -20,10 +20,9 @@
             <td>{{item.profession}}</td>
             <td>{{item.mobileNumber}}</td>
             <td>{{item.password}}</td>
-            <td>{{item.confirmPassword}}</td>
-            
+            <td>{{item.confirmPassword}}</td>            
             <td>
-                <button routerLink="/edit" class="btn btn-primary me-2" (click)="editPage(item.id)">Edit</button>
+                <button class="btn btn-primary me-2" (click)="editPage(item.id)">Edit</button>
                 <button class="btn btn-danger" (click)="deleteRegisterData(item.id)" >Delete</button>
             </td>
         </tr>    

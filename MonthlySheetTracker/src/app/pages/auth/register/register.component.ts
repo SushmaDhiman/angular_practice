@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class RegisterComponent {
   requiredContent: string = 'This field is required.';
   registerForm: FormGroup;  
-  constructor(private _commonService: CommonService, public fb: FormBuilder) {
+  constructor(private _commonService: CommonService, public fb: FormBuilder,private snackBar: MatSnackBar) {
     this.registerForm = this.fb.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -18,8 +19,9 @@ export class RegisterComponent {
       profession: [this.registerLabels.professionSelect.selectProfession],
       mobileNumber: ['', [Validators.required,Validators.pattern('.{10,10}')]],
       password: ['', [Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')]],
-      confirmPassword: ['',[Validators.required]],
+      confirmPassword: ['',[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')]],
     });
+    console.log(this._commonService.getDataID);
   }
   get firstName() {
     return this.registerForm.get('firstName')
@@ -39,7 +41,6 @@ export class RegisterComponent {
   get confirmPassword() {
     return this.registerForm.get('confirmPassword')
   }
-
   
   applicationTitle: string = this._commonService.applicationTitle;
   registerButton: string = 'Register';
@@ -59,21 +60,24 @@ export class RegisterComponent {
     password: 'Password',
     confirmPassword: 'Confirm Password',
   };
-
+  
   submitForm() {
     if (this.registerForm.valid) {
       this._commonService.registerUserData(this.registerForm.value).subscribe(data => {
       })
-      window.location.href = 'http://localhost:4200/dashboard';
+      
     }
-
   }
+ 
   isValid: boolean = false
   isValidate() {
     if (this.firstName?.invalid && this.lastName?.invalid && this.email?.invalid && this.mobileNumber?.invalid && this.password?.invalid && this.confirmPassword?.invalid) {
       this.isValid = true;
+      this._commonService.snackBarMessage = "Data registered SuccessFully";
     }
+     console.log(this._commonService.snackBarMessage);
   }
+
 
   inputTypePass: string = "password";
   inputType: string = "password";

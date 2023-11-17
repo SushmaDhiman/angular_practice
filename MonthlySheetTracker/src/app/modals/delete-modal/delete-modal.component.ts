@@ -18,7 +18,6 @@ export class DeleteModalComponent {
     this._commonService.deleteRegisterData(this.dialogData.id).subscribe( data=>{
     })
     this.dialogRef.closeAll()
-    
   }
 
 }

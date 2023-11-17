@@ -1,6 +1,5 @@
-import { Component,Inject,Input,OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DashBoardComponent } from 'src/app/dash-board/dash-board.component';
 import { CommonService } from 'src/app/services/common.service';
 
 @Component({
@@ -8,10 +7,10 @@ import { CommonService } from 'src/app/services/common.service';
   templateUrl: './edit-modal.component.html',
   styleUrls: ['./edit-modal.component.scss']
 })
-export class EditModalComponent implements OnInit {
+export class EditModalComponent {
   requiredContent: string = 'This field is required.';
   registerForm: FormGroup;
-  getID: any = this._commonService.getDataID? this._commonService.getDataID : "0";
+  getID: any = this._commonService.getDataID? this._commonService.getDataID : "1";
   editGetData : any;
   constructor(private _commonService: CommonService, public fb: FormBuilder) {
     this.getRegisterData()
@@ -26,9 +25,7 @@ export class EditModalComponent implements OnInit {
     });
   }
     
-  ngOnInit(): void {
-    
-  }
+  
   getRegisterData() {
     this._commonService.getRegisterData().subscribe(data => {
       this.registerForm.patchValue({

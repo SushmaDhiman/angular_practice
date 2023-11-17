@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -12,9 +14,10 @@ import { MatButtonModule } from '@angular/material/button'
     CommonModule,
     MatDialogModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
   exports:[CommonModule,MatDialogModule,MatDividerModule,
-    MatButtonModule]
+    MatButtonModule,MatSnackBarModule]
 })
 export class MaterialsModule { }

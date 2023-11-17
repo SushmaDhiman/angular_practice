@@ -10,6 +10,8 @@ export class CommonService {
   constructor(private http:HttpClient) { }
   //common variables
   applicationTitle: string = 'Monthly Tracking Sheet';
+  getDataID: any;
+  snackBarMessage: any;
 
 detail = {
   firstName : 'Sushma',
@@ -32,7 +34,6 @@ getRegisterData():Observable<any>{
 deleteRegisterData(data: any):Observable<any>{
   return this.http.delete(this.Url+ "registerUser"+"/"+data)
 }
-getDataID: any;
 
 updateData(id: any,data: any):Observable<any>{
   return this.http.put(this.Url+ "registerUser"+"/"+id, data);
