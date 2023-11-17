@@ -8,17 +8,17 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  registerForm: FormGroup;
-  window = window.location.href;
+  requiredContent: string = 'This field is required.';
+  registerForm: FormGroup;  
   constructor(private _commonService: CommonService, public fb: FormBuilder) {
     this.registerForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]],
-      lastName: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       profession: [this.registerLabels.professionSelect.selectProfession],
       mobileNumber: ['', [Validators.required,Validators.pattern('.{10,10}')]],
       password: ['', [Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')]],
-      confirmPassword: ['', [Validators.required]],
+      confirmPassword: ['',[Validators.required]],
     });
   }
   get firstName() {
@@ -39,6 +39,8 @@ export class RegisterComponent {
   get confirmPassword() {
     return this.registerForm.get('confirmPassword')
   }
+
+  
   applicationTitle: string = this._commonService.applicationTitle;
   registerButton: string = 'Register';
   registerLabels = {
@@ -58,37 +60,47 @@ export class RegisterComponent {
     confirmPassword: 'Confirm Password',
   };
 
-  updateRegister() {
-    throw new Error('Method not implemented.');
-  }
-
   submitForm() {
     if (this.registerForm.valid) {
       this._commonService.registerUserData(this.registerForm.value).subscribe(data => {
       })
+      window.location.href = 'http://localhost:4200/dashboard';
     }
 
   }
   isValid: boolean = false
   isValidate() {
-    if (this.firstName?.invalid) {
+    if (this.firstName?.invalid && this.lastName?.invalid && this.email?.invalid && this.mobileNumber?.invalid && this.password?.invalid && this.confirmPassword?.invalid) {
       this.isValid = true;
     }
-    if (this.lastName?.invalid) {
-      this.isValid = true;
-    }
-    if (this.email?.invalid) {
-      this.isValid = true;
-    }
-    if (this.mobileNumber?.invalid) {
-      this.isValid = true;
-    }
-    if (this.password?.invalid) {
-      this.isValid = true;
-    }
-    if (this.confirmPassword?.invalid) {
-      this.isValid = true;
-    }
+  }
+
+  inputTypePass: string = "password";
+  inputType: string = "password";
+  isShow: boolean = false;
+  isShowPass: boolean = false;
+  isHidePass: boolean = true;
+  isHide: boolean = true;
+  showPass(){
+    this.isShowPass = !this.isShowPass;
+    this.isHidePass = !this.isShowPass;
+  this.inputTypePass = "password";
+  }
+  hidePass(){
+    this.isHidePass = !this.isHidePass;
+    this.isShowPass = !this.isHidePass;
+  this.inputTypePass = "text";
+  }
+  show(){
+    this.isShow = !this.isShow;
+    this.isHide = !this.isShow;
+  this.inputType = "password";
+  }
+  hide(){
+    this.isHide = !this.isHide;
+    this.isShow = !this.isHide;
+  this.inputType = "text";
+
   }
 
 }

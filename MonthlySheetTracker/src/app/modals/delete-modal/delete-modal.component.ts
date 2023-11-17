@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog'
+import { Component,Inject } from '@angular/core';
+import { MatDialog,MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-delete-modal',
@@ -7,6 +8,17 @@ import { MatDialogRef } from '@angular/material/dialog'
   styleUrls: ['./delete-modal.component.scss']
 })
 export class DeleteModalComponent {
-  constructor(public dialogRef: MatDialogRef<DeleteModalComponent>,){ }
+  constructor(@Inject(MAT_DIALOG_DATA) public dialogData:{id:any},private dialogRef: MatDialog,private _commonService: CommonService){ }
+
+  closeDialog(){
+ this.dialogRef.closeAll()
+  }
+  deleteRegisterData(){
+    console.log("object");
+    this._commonService.deleteRegisterData(this.dialogData.id).subscribe( data=>{
+    })
+    this.dialogRef.closeAll()
+    
+  }
 
 }

@@ -5,6 +5,7 @@ import { RegisterComponent } from './pages/auth/register/register.component';
 import { PageNotFoundComponent } from './pages/error/page-not-found/page-not-found.component';
 import { DashBoardComponent } from './dash-board/dash-board.component';
 import { DeleteModalComponent } from './modals/delete-modal/delete-modal.component';
+import { EditModalComponent } from './modals/edit-modal/edit-modal.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'edit',
-    component: RegisterComponent,
+    component: EditModalComponent,
   },
   {
     path: 'delete',

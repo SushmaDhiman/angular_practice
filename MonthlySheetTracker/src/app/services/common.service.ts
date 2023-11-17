@@ -13,8 +13,8 @@ export class CommonService {
 
 detail = {
   firstName : 'Sushma',
-lastName : 'Dhiman',
-age : '20',
+ lastName : 'Dhiman',
+  age : '20',
 }
 text: string = 'this is a common service';
 myData(){
@@ -26,10 +26,15 @@ registerUserData(data: any):Observable<any>{
 }
 
 getRegisterData():Observable<any>{
-  return this.http.get(this.Url+ "registerUser")
+  return this.http.get(this.Url+ "registerUser");
 }
+
 deleteRegisterData(data: any):Observable<any>{
   return this.http.delete(this.Url+ "registerUser"+"/"+data)
 }
+getDataID: any;
 
+updateData(id: any,data: any):Observable<any>{
+  return this.http.put(this.Url+ "registerUser"+"/"+id, data);
+}
 }

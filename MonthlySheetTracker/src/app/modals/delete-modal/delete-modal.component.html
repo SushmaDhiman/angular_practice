@@ -1,6 +1,9 @@
-<div class="container delete-modal  d-flex justify-content-center align-items-center">
-    <div class="w-50 shadow-lg p-3">
-        <h3>Delete details</h3>
-        <!-- <mat-divider></mat-divider> -->
-    </div>
+<div class="p-3">
+        <h2 class="fw-medium text-primary-emphasis">Delete details</h2>  
+        <mat-divider></mat-divider>  
+        <p class="fs-5 py-3 text-danger">Hey! User do you want to delete details.</p>
+        <div class="d-flex justify-content-end align-items-center">
+            <button mat-raised-button (click)="closeDialog()" mat-dialog-close="id" class="me-2">Cancel</button>
+        <button mat-raised-button class="bg-danger text-white" (click)="deleteRegisterData()">Delete</button>
+        </div>
 </div>

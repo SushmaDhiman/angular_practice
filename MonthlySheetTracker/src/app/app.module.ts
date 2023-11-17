@@ -16,7 +16,7 @@ import { DashBoardComponent } from './dash-board/dash-board.component';
 import { DeleteModalComponent } from './modals/delete-modal/delete-modal.component';
 import { EditModalComponent } from './modals/edit-modal/edit-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MaterialsModule } from './materials/materials.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     DeleteModalComponent,
     EditModalComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule, BrowserAnimationsModule,MatDialogModule],
+  imports: [BrowserModule, AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule, BrowserAnimationsModule,MaterialsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
